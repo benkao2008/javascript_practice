@@ -82,6 +82,8 @@ console.log("OS Options are: " + course.preReqs.equipment.OSOptions.join(" or ")
 
 // Doing it the harder way
 
+// var studentOSX = [];
+
 // if (course.students[0].computer.OS === "OSX") {
 // 	studentOSX.push(course.students[0].name)
 // } 
