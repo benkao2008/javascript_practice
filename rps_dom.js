@@ -1,12 +1,14 @@
+//array for each selection (selection bank)
 var hands = ["rock", "paper", "scissors"];
 
+//prompt for user's name
 var playerName = prompt("Enter your name: ");
 
+// player objects (player info bank)
 var player1 = {
 	name: playerName,
 	score: {
 		wins: 0,
-		ties: 0,
 		losses: 0,
 	}
 }
@@ -15,18 +17,21 @@ var player2 = {
 	name: "AI",
 	score: {
 		wins: 0,
-		ties: 0,
 		losses: 0,
 	}
 }
 
-var rock = document.getElementById("rockButton");
-var paper = document.getElementById("paperButton");
-var scissors = document.getElementById("scissorsButton");
 
-rock.addEventListener("click", rockClick);
-paper.addEventListener("click", paperClick);
-scissors.addEventListener("click", scissorsClick);
+// each button has its own addEventListener so it will know what to do when a button is clicked.
+
+document.getElementById("rockButton").addEventListener("click", rockClick);
+
+document.getElementById("paperButton").addEventListener("click", paperClick);
+
+document.getElementById("scissorsButton").addEventListener("click", scissorsClick);
+
+
+// in each function, when one button is clicked, computer generates a hand by randomly selecting from the array bank. after that, we compare both hands and decide who wins.
 
 function rockClick() {
 
@@ -91,6 +96,9 @@ function scissorsClick() {
   scoreUpdate();
 }
 
+
+
+// innerHTML allows us to change what was on the HTML page for score update for the user to see
 function scoreUpdate() {
 
 		result.innerHTML = player1.name + " has " + player1.score.wins + " wins" + " vs. " + player2.name + " has " + player2.score.wins + " wins"
@@ -98,6 +106,9 @@ function scoreUpdate() {
 		endGame();
 }
 
+
+
+// this function is to change the HTML page to notify user that the game has ended when one of the players hit 5 wins.
 function endGame(){
 
 	if (player1.score.wins == 5){
@@ -125,27 +136,3 @@ function endGame(){
 
 
 }
-	
-	// playUntil(player1, player2);
-	
-
-
-// function playUntil(arg1, arg2){
-// 	var winner = null;
-// 	if (arg1.score.wins > arg2.score.wins){
-// 		console.log(arg1.name + " is the overall winner!!");
-// 		winner = arg1;
-// 	}
-// 	if (arg2.score.wins > arg1.score.wins){
-// 		console.log(arg2.name + " is the overall winner!!");
-// 		winner = arg2
-// 	}
-
-// 	if (arg2.score.wins === arg1.score.wins){
-// 		console.log("Play again! There is no winner.");
-// 		winner = null;
-// 	}	
-// 	return winner;
-// }
-
-
